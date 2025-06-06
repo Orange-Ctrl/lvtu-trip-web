@@ -4,9 +4,9 @@
 
 本项目是一款基于 Vue3 技术栈开发的民宿预订服务移动端应用，采用组件化、模块化的开发方式，实现了完整的民宿预订业务流程。项目围绕用户住宿场景需求，设计并实现了"新房特惠推荐"、"房源搜索"、"房源图文详情页"、"订单管理"、"消息通知"等核心功能模块。
 
-![主页2](D:\求职\github图片\主页2.png)![主页](D:\求职\github图片\主页.png)
+![page1](D:\coderwhy\hy-trip-code\public\img\page1.png)
 
-
+![page2](D:\coderwhy\hy-trip-code\public\img\page2.png)
 
 ## 技术栈
 
@@ -120,5 +120,3 @@ npm run dev
 # 生产环境构建
 npm run build
 ```
-
-![主页](D:\求职\github图片\主页.png
