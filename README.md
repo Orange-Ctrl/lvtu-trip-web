@@ -1,4 +1,4 @@
-# 旅途 App - 民宿预订服务移动端应用
+# 旅途民宿预订服务移动端应用
 
 ### 项目介绍
 
@@ -10,7 +10,7 @@
 
 ### 技术栈
 
-- Vue3 + Vite+Pinia+Vant+Axios+Vue Router+Less
+- Vue3 + Vite + Pinia + Vant + Axios + Vue Router +Less
 
 ### 核心功能模块
 
