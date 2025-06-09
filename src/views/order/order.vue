@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import useOrderStore from "@/stores/modules/order";
 import navBar from "@/components/common/z-navbar.vue";
 import item from "./cpns/item.vue";
@@ -26,11 +26,17 @@ import { storeToRefs } from "pinia";
 const active = ref("all");
 const orderStore = useOrderStore();
 const { orderInfo } = storeToRefs(orderStore);
-const orderData = computed(() => orderInfo.value.data);
+const orderData = computed(() => orderInfo.value?.data || {});
+
 function onChange(e) {
   active.value = e;
   orderStore.fetchOrderList(e);
 }
+
+// 组件挂载时加载数据
+onMounted(() => {
+  orderStore.fetchOrderList();
+});
 </script>
 
 <style lang="less" scoped>

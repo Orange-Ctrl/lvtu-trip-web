@@ -105,9 +105,16 @@ const { currentCity } = storeToRefs(cityStore);
 const mainStore = useMainStore();
 const { startDate, endDate } = storeToRefs(mainStore);
 
-const startDateStr = computed(() => formatMonthDay(startDate.value));
-const endDateStr = computed(() => formatMonthDay(endDate.value));
-const stayCount = ref(getDiffDays(startDate.value, endDate.value));
+const startDateStr = computed(() =>
+  startDate.value ? formatMonthDay(startDate.value) : ""
+);
+const endDateStr = computed(() =>
+  endDate.value ? formatMonthDay(endDate.value) : ""
+);
+const stayCount = computed(() => {
+  if (!startDate.value || !endDate.value) return 0;
+  return getDiffDays(startDate.value, endDate.value);
+});
 
 const showCalendar = ref(false);
 const onConfirm = (value) => {
@@ -116,7 +123,6 @@ const onConfirm = (value) => {
   const selectEndDate = value[1];
   mainStore.startDate = selectStartDate;
   mainStore.endDate = selectEndDate;
-  stayCount.value = getDiffDays(selectStartDate, selectEndDate);
 
   // 2.隐藏日历
   showCalendar.value = false;

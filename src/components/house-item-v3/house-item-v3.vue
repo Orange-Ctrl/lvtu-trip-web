@@ -2,11 +2,11 @@
   <div class="house-item">
     <div class="item-inner">
       <div class="cover">
-        <img :src="itemData?.image?.url" alt="" />
+        <img v-lazy="itemData?.image?.url" alt="" />
       </div>
       <div class="info">
         <div class="location">
-          <img src="@/assets/img/home/location.png" alt="" />
+          <img v-lazy="locationIcon" alt="" />
           <span>{{ itemData.location }}</span>
         </div>
         <div class="name">{{ itemData.houseName }}</div>
@@ -24,6 +24,8 @@
 </template>
 
 <script setup>
+import locationIcon from "@/assets/img/home/location.png";
+
 defineProps({
   itemData: {
     type: Object,

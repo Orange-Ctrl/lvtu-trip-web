@@ -2,13 +2,19 @@
   <div class="house-item">
     <div class="item-inner">
       <div class="cover">
-        <img :src="itemData.image.url" alt="">
+        <img v-lazy="itemData.image.url" alt="" />
       </div>
       <div class="info">
         <div class="summary">{{ itemData.summaryText }}</div>
         <div class="name">{{ itemData.houseName }}</div>
         <div class="price">
-          <van-rate :model-value="itemScore" color="#fff" :size="15" readonly allow-half />
+          <van-rate
+            :model-value="itemScore"
+            color="#fff"
+            :size="15"
+            readonly
+            allow-half
+          />
           <div class="new">¥ {{ itemData.finalPrice }}</div>
         </div>
       </div>
@@ -17,20 +23,18 @@
 </template>
 
 <script setup>
-import { computed } from '@vue/reactivity';
-
+import { computed } from "@vue/reactivity";
 
 const props = defineProps({
   itemData: {
     type: Object,
-    default: () => ({})
-  }
-})
+    default: () => ({}),
+  },
+});
 
 const itemScore = computed(() => {
-  return Number(props.itemData.commentScore)
-})
-
+  return Number(props.itemData.commentScore);
+});
 </script>
 
 <style lang="less" scoped>
